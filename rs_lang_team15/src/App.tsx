@@ -18,6 +18,12 @@ function App() {
         >
           Learn React
         </a>
+            <a
+          className="App-link"
+          href="https://github.com/anvianvi/RS-Lang"
+          target="_blank"
+          rel="noopener noreferrer"
+        > our git</a>
       </header>
     </div>
   );
