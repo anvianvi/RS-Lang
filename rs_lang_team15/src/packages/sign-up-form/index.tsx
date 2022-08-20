@@ -64,10 +64,10 @@ export default function SignUpForm() {
       />
 
       <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <InputLabel htmlFor="sign-up-password">Password</InputLabel>
         <OutlinedInput
           required
-          id="outlined-adornment-password"
+          id="sign-up-password"
           type={values.showPassword ? "text" : "password"}
           value={values.password}
           onChange={handleChange("password")}
@@ -87,8 +87,8 @@ export default function SignUpForm() {
         />
       </FormControl>
 
-      <Button variant="contained">Log in</Button>
-      <Button href="#text-buttons">Don't have an account? Sign Up</Button>
+      <Button variant="contained">Sign up</Button>
+      <Button href="#text-buttons">Do you have an account? Sign In</Button>
     </div>
   );
 }

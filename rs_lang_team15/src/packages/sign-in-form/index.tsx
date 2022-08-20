@@ -57,10 +57,10 @@ export default function SignInForm() {
       />
 
       <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <InputLabel htmlFor="sign-in-password">Password</InputLabel>
         <OutlinedInput
           required
-          id="outlined-adornment-password"
+          id="sign-in-password"
           type={values.showPassword ? "text" : "password"}
           value={values.password}
           onChange={handleChange("password")}
