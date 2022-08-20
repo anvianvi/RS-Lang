@@ -1,9 +1,8 @@
-// https://mui.com/material-ui/react-text-field/#type-quot-number-quot
+import "./style.css";
+import React from "react";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import "./style.css";
-import React from "react";
 import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -17,7 +16,7 @@ interface State {
   showPassword: boolean;
 }
 
-export default function SignInForm() {
+export default function SignUpForm() {
   const [values, setValues] = React.useState<State>({
     password: "",
     showPassword: false,
@@ -40,12 +39,20 @@ export default function SignInForm() {
   ) => {
     event.preventDefault();
   };
-
   return (
     <div className="sign-in-container">
       <Typography variant="h4">
-        <b>Login!</b>
+        <b>Registration</b>
       </Typography>
+
+      <TextField
+        required
+        sx={{ m: 1, width: "25ch" }}
+        name="name"
+        type="text"
+        placeholder="your name or nickname"
+        label="Name"
+      />
 
       <TextField
         required
@@ -80,7 +87,7 @@ export default function SignInForm() {
         />
       </FormControl>
 
-      <Button variant="contained">Sugn in</Button>
+      <Button variant="contained">Log in</Button>
       <Button href="#text-buttons">Don't have an account? Sign Up</Button>
     </div>
   );
