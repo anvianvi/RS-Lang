@@ -1,0 +1,20 @@
+.advantages-card-image{
+  width: 140px !important;
+  margin: 0 auto;
+}
+.css-46bh2p-MuiCardContent-root {
+  text-align: center;
+}
+.advantage-block-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5vw;
+  padding: 5vw 10vw;
+  border: 3px rgb(255, 108, 226) solid;
+}
+.card-container{
+  padding: 1vw;
+  min-height: 340px;
+}

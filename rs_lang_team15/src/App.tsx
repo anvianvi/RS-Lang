@@ -1,30 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./packages/header";
+import SignInForm from "./packages/sign-in-form";
+import SignUpForm from "./packages/sign-up-form";
+import Footer from "./packages/footer";
+import AdvatagesBlock from "./packages/advantages-block";
+import TeamBlock from "./packages/about-team";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-            <a
-          className="App-link"
-          href="https://github.com/anvianvi/RS-Lang"
-          target="_blank"
-          rel="noopener noreferrer"
-        > our git</a>
-      </header>
-    </div>
+    <>
+    <Header />
+    <AdvatagesBlock />
+    <TeamBlock />
+    <Footer />
+    <SignInForm />
+    <SignUpForm />
+    </>
   );
 }
 
