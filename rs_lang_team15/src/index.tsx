@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import Header from "./packages/header";
 import SignInForm from "./packages/sign-in-form";
 import SignUpForm from "./packages/sign-up-form";
+import Footer from "./packages/footer";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,6 +16,7 @@ root.render(
     <Header />
     <SignInForm />
     <SignUpForm />
+    <Footer />
     <App />
   </React.StrictMode>
 );
