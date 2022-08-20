@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5vw;
+  background: pink;
+}
+.links-container {
+  display: flex;
+  gap: 2vw;
+}

@@ -1,0 +1,20 @@
+.logo{
+  height: 45px;
+}
+.header{
+  background: pink;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5vw;
+  align-items: center;
+}
+
+.sign-block{
+  display: flex;
+  gap: 2vw;
+}
+
+.header-navigation{
+  display: flex;
+  gap: 4vw;
+}
