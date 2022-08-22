@@ -24,7 +24,7 @@ export default function Footer() {
           Pavel
         </Link>
       </div>
-      <Typography>© 2021</Typography>
+      <Typography>© 2022</Typography>
     </div>
   );
 }
