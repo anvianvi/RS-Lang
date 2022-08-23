@@ -11,8 +11,8 @@ export default function AdvatagesBlock() {
   return (
     <div className="advantage-block-container">
       {AdvantagesList.map((el, index) => (
-        <Paper elevation={5}>
-        <Card sx={{ maxWidth: 330 }} data-index={index} className="card-container">
+        <Paper elevation={5} data-indexd={index}>
+        <Card sx={{ maxWidth: 330 }} className="card-container">
           <CardActionArea>
             <CardMedia
               component="img"

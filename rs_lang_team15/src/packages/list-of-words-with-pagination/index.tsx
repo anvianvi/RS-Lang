@@ -6,6 +6,7 @@ import TextBookWordsList from "./example-of-data";
 import Typography from "@mui/material/Typography";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import IconButton from "@mui/material/IconButton";
+import Pagination from "@mui/material/Pagination";
 
 const URL = "https://react-learnwords-example.herokuapp.com/";
 
@@ -26,64 +27,67 @@ function playAudio(e: string) {
 
 export default function ListOfWords() {
   return (
-    <Paper elevation={6} className="word-contaier" id={TextBookWordsList[0].id}>
-      <div className="word-container-header">
-        <Avatar
-          alt={TextBookWordsList[0].word}
-          src={URL + TextBookWordsList[0].image}
-          sx={{ width: 120, height: 120 }}
-        />
-        <div className="wodr-box">
-          <Typography variant="h5">
-            {TextBookWordsList[0].word}
+    <div className="cards-container">
+
+      {TextBookWordsList.map((el) => (
+        <Paper elevation={6} className="word-contaier" id={el.id}>
+          <div className="word-container-header">
+            <Avatar
+              alt={el.word}
+              src={URL + el.image}
+              sx={{ width: 120, height: 120 }}
+            />
+            <div className="wodr-box">
+              <Typography variant="h5">
+                {el.word}
+                <IconButton
+                  className="card-voise-button"
+                  color="primary"
+                  onClick={() => {
+                    playAudio(el.audio);
+                  }}
+                >
+                  <VolumeUpIcon />
+                </IconButton>
+              </Typography>
+              <Typography variant="subtitle2">{el.transcription}</Typography>
+              <Typography variant="body1" className="card-translation">
+                {el.wordTranslate}
+              </Typography>
+            </div>
+          </div>
+          <Typography variant="body1">
             <IconButton
               className="card-voise-button"
               color="primary"
               onClick={() => {
-                playAudio(TextBookWordsList[0].audio);
+                playAudio(el.audioMeaning);
+              }}
+            >
+              <VolumeUpIcon sx={{ fontSize: 20 }} />
+            </IconButton>
+            {Parser(el.textMeaning)}
+          </Typography>
+          <Typography variant="body2" className="card-translation">
+            {el.textMeaningTranslate}
+          </Typography>
+          <Typography variant="body1">
+            <IconButton
+              className="card-voise-button"
+              color="primary"
+              onClick={() => {
+                playAudio(el.audioMeaning);
               }}
             >
               <VolumeUpIcon />
             </IconButton>
+            {Parser(el.textExample)}
           </Typography>
-          <Typography variant="subtitle2">
-            {TextBookWordsList[0].transcription}
+          <Typography variant="body2" className="card-translation">
+            {el.textExampleTranslate}
           </Typography>
-          <Typography variant="body1" className="card-translation">
-            {TextBookWordsList[0].wordTranslate}
-          </Typography>
-        </div>
-      </div>
-      <Typography variant="body1">
-        <IconButton
-          className="card-voise-button"
-          color="primary"
-          onClick={() => {
-            playAudio(TextBookWordsList[0].audioMeaning);
-          }}
-        >
-          <VolumeUpIcon sx={{ fontSize: 20 }} />
-        </IconButton>
-        {Parser(TextBookWordsList[0].textMeaning)}
-      </Typography>
-      <Typography variant="body2" className="card-translation">
-        {TextBookWordsList[0].textMeaningTranslate}
-      </Typography>
-      <Typography variant="body1">
-        <IconButton
-          className="card-voise-button"
-          color="primary"
-          onClick={() => {
-            playAudio(TextBookWordsList[0].audioMeaning);
-          }}
-        >
-          <VolumeUpIcon />
-        </IconButton>
-        {Parser(TextBookWordsList[0].textExample)}
-      </Typography>
-      <Typography variant="body2" className="card-translation">
-        {TextBookWordsList[0].textExampleTranslate}
-      </Typography>
-    </Paper>
+        </Paper>
+      ))}
+    </div>
   );
 }

@@ -1,3 +1,7 @@
+.cards-pagination{
+  max-width: 345px;
+  margin: 30px auto 0 auto;
+}
 .word-contaier{
   width: 500px;
   margin: 25px auto;
@@ -13,6 +17,7 @@
   gap: 40px;
   padding: 0 0 0 40px;
   margin: 0 0 20px;
+  align-items: center;
 }
 
 .card-voise-button{

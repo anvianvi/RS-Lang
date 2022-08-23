@@ -11,8 +11,8 @@ export default function TeamBlock() {
   return (
     <div className="team-container">
       {TeamList.map((el, index) => (
-        <Paper elevation={6}>
-          <Card sx={{ maxWidth: 345 }} data-index={index}>
+        <Paper elevation={6} data-indexd={index}>
+          <Card sx={{ maxWidth: 345 }} >
             <CardMedia
               component="img"
               height="350"
