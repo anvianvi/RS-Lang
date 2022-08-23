@@ -1,0 +1,26 @@
+.word-contaier{
+  width: 500px;
+  margin: 25px auto;
+  padding: 10px;
+}
+.wodr-box{
+  border-left: 5px solid #A67F8E;
+  padding: 0 0 0 8px;
+  max-height: 90px;
+}
+.word-container-header{
+  display: flex;
+  gap: 40px;
+  padding: 0 0 0 40px;
+  margin: 0 0 20px;
+}
+
+.card-voise-button{
+  padding: 0 5px 0 0 !important;
+}
+
+.card-translation{
+  margin: 5px 0 15px 0 !important;
+}
+
+
