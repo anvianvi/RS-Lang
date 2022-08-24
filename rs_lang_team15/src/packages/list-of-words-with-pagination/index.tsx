@@ -6,13 +6,12 @@ import TextBookWordsList from "./example-of-data";
 import Typography from "@mui/material/Typography";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import IconButton from "@mui/material/IconButton";
-import Pagination from "@mui/material/Pagination";
 
 const URL = "https://react-learnwords-example.herokuapp.com/";
 
 function playAudio(e: string) {
   const audio = new Audio(URL + e);
-
+ 
   function togglePause() {
     if (audio.paused && audio.currentTime > 0 && !audio.ended) {
       audio.pause();
@@ -76,7 +75,7 @@ export default function ListOfWords() {
               className="card-voise-button"
               color="primary"
               onClick={() => {
-                playAudio(el.audioMeaning);
+                playAudio(el.audioExample);
               }}
             >
               <VolumeUpIcon />
