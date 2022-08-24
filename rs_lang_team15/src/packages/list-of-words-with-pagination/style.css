@@ -28,4 +28,10 @@
   margin: 5px 0 15px 0 !important;
 }
 
+.pagination-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 

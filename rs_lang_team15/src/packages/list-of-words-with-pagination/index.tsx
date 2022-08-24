@@ -6,29 +6,33 @@ import TextBookWordsList from "./example-of-data";
 import Typography from "@mui/material/Typography";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import IconButton from "@mui/material/IconButton";
+import { useState, useMemo } from "react";
+import Pagination from "./pagination";
+import playAudio from "./playAudio";
 
 const URL = "https://react-learnwords-example.herokuapp.com/";
-
-function playAudio(e: string) {
-  const audio = new Audio(URL + e);
- 
-  function togglePause() {
-    if (audio.paused && audio.currentTime > 0 && !audio.ended) {
-      audio.pause();
-      console.log("playing");
-    } else {
-      console.log("paused");
-      audio.play();
-    }
-  }
-  togglePause();
-}
+let PageSize: number = 3;
 
 export default function ListOfWords() {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return TextBookWordsList.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
   return (
     <div className="cards-container">
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={TextBookWordsList.length}
+        pageSize={PageSize}
+        onPageChange={(page: number) => setCurrentPage(page)}
+      />
 
-      {TextBookWordsList.map((el) => (
+      {currentTableData.map((el) => (
         <Paper elevation={6} className="word-contaier" id={el.id}>
           <div className="word-container-header">
             <Avatar
