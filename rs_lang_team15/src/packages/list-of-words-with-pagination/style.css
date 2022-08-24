@@ -1,0 +1,37 @@
+.cards-pagination{
+  max-width: 345px;
+  margin: 30px auto 0 auto;
+}
+.word-contaier{
+  width: 500px;
+  margin: 25px auto;
+  padding: 10px;
+}
+.wodr-box{
+  border-left: 5px solid #A67F8E;
+  padding: 0 0 0 8px;
+  max-height: 90px;
+}
+.word-container-header{
+  display: flex;
+  gap: 40px;
+  padding: 0 0 0 40px;
+  margin: 0 0 20px;
+  align-items: center;
+}
+
+.card-voise-button{
+  padding: 0 5px 0 0 !important;
+}
+
+.card-translation{
+  margin: 5px 0 15px 0 !important;
+}
+
+.pagination-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
