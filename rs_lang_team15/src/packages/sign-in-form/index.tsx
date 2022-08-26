@@ -11,6 +11,8 @@ import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+// import {GoogleLogin} from '@react-oauth/google';
+
 
 interface State {
   password: string;
@@ -79,8 +81,16 @@ export default function SignInForm() {
           label="Password"
         />
       </FormControl>
-
-      <Button variant="contained">Sugn in</Button>
+          {/* <div> <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+  useOneTap
+/>;</div> */}
+      <Button variant="contained">Sign in</Button>
       <Button href="#text-buttons">Don't have an account? Sign Up</Button>
     </div>
   );
