@@ -10,6 +10,7 @@ import { useState, useMemo } from "react";
 import Pagination from "./pagination";
 import playAudio from "./playAudio";
 
+
 const URL = "https://react-learnwords-example.herokuapp.com/";
 let PageSize: number = 3;
 
