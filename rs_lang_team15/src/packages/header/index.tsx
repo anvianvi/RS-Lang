@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import AccountMenu from "./accaunt-menu";
 import "./style.css";
+import {GoogleLogin} from '@react-oauth/google';
 
 function Header() {
   return (
@@ -14,7 +15,18 @@ function Header() {
       </nav>
       {/* depends on sign status we can show diferent buttons  */}
       <div className="sign-block">
-        <Button variant="outlined">Sign in</Button>
+        <Button variant="outlined">
+        <div> <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log(credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+  useOneTap
+/></div>
+
+        </Button>
         <AccountMenu />
       </div>
     </div>
