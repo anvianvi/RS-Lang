@@ -15,7 +15,7 @@ interface TextBookWord {
   textExampleTranslate: string;
 }
 
-const TextBookWordsList: TextBookWord[] = [
+export const TextBookWordsList: TextBookWord[] = [
   {
     id: "5e9f5ee35eb9e72bc21af4a0",
     group: 0,

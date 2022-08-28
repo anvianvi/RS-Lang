@@ -1,6 +1,16 @@
-.game-container{
-  width: 500px;
-  height: 300px;
+.game-container {
+  width: 800px;
+  height: 550px;
   margin: 10px auto;
-  
+  background: lightskyblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.game-field-buttons-container {
+  display: flex;
+  gap: 30px;
 }
