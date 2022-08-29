@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/RS-Lang/static/css/main.108b0ea7.css",
+    "main.js": "/RS-Lang/static/js/main.9f655f89.js",
+    "static/js/787.da542cb8.chunk.js": "/RS-Lang/static/js/787.da542cb8.chunk.js",
+    "index.html": "/RS-Lang/index.html",
+    "main.108b0ea7.css.map": "/RS-Lang/static/css/main.108b0ea7.css.map",
+    "main.9f655f89.js.map": "/RS-Lang/static/js/main.9f655f89.js.map",
+    "787.da542cb8.chunk.js.map": "/RS-Lang/static/js/787.da542cb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.108b0ea7.css",
+    "static/js/main.9f655f89.js"
+  ]
+}
