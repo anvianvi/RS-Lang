@@ -1,4 +1,4 @@
-import { Word, User, SignIn, Auth, UserWord, UserWordFull } from './interfaces'
+import { Word, User, SignIn, Auth, UserWord, UserWordFull, Setting, Statistic } from './interfaces'
 
 const base = 'https://rs-lang-team15.herokuapp.com';
 
@@ -198,7 +198,8 @@ export const deleteUserWord = async (id: string, wordId: string, word: UserWord,
 
 // Users/AggregatedWords
 
-export const getAggregatedWords = async (id: string, group: number, page: number, token: string) => (
+export const getAggregatedWords = async (id: string, group: number, page: number, token: string) => 
+(
   await fetch(`${base}/users/${id}/aggregatedWords?group=${group}&page=${page}&wordsPerPage=20`, {
     method: 'GET',
     headers: {
@@ -216,4 +217,78 @@ export const getAggregatedWords = async (id: string, group: number, page: number
 
 // Users/Statistic
 
+export const getUserStatistics = async (id: string, token: string): Promise<Statistic> => 
+(
+  await fetch(`${base}/users/${id}/statistics`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  }).then(data => {
+    if (data.status !== 200) {
+      throw new Error(`${data.status}`);
+    }
+    return data.json();
+  })
+)
+
+export const setUserStatistics = async (id: string, token: string, body: any): Promise<Statistic> => {
+  const mapBody = JSON.stringify({
+    optional:
+      Object.entries(body).reduce((acc:any, [key, value]) => {
+        acc[key] = Array.isArray(value) ? JSON.stringify(value).replace(/"/g, '\"') : value;
+        return acc
+      }, {})
+  })
+  const res = await fetch(`${base}/users/${id}/statistics`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: mapBody,
+  });
+  if (res.status !== 200) {
+    throw new Error(`${res.status}`);
+  }
+  return await res.json();
+}
 // Users/Setting
+
+export const getUserSettings = async (id: string, token: string): Promise<Setting> => 
+(
+  await fetch(`${base}/users/${id}/settings`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  }).then(data => {
+    if (data.status !== 200) {
+      throw new Error(`${data.status}`);
+    }
+    return data.json();
+  })
+)
+
+export const updateUserSettings = async (id: string, optional: Object, token: string): Promise<Setting> => 
+(
+  await fetch(`${base}/users/${id}/settings`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(optional)
+  }).then(data => {
+    if (data.status !== 200) {
+      throw new Error(`${data.status}`);
+    }
+    return data.json();
+  })
+);
