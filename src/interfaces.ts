@@ -20,6 +20,13 @@ export interface UserWord {
   optional:	{}
 }
 
+export interface UserWordFull{
+  id: string,
+  difficulty:	string,
+  optional:	{},
+  wordId: string
+}
+
 export interface Statistic{
   learnedWords:	number,
   optional:	{}
@@ -42,4 +49,9 @@ export interface Auth {
   refreshToken:	string,
   userId:	string,
   name:	string
+  }
+
+  export interface SignIn {
+    email:	string,
+    password:	string
   }
