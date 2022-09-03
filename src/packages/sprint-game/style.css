@@ -1,16 +1,39 @@
 .game-container {
-  width: 800px;
-  height: 550px;
+  width: 90vw;
+  height: 350px;
   margin: 10px auto;
-  background: lightskyblue;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  border: 20px groove #1976d2;
 }
 
 .game-field-buttons-container {
   display: flex;
+  gap: 30px;
+}
+.stars-container {
+  display: flex;
+  align-content: center;
+  gap: 5px;
+  margin: 0 0 20px 0;
+}
+
+.sprint-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+.sprint-mainpart-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
 }
