@@ -5,9 +5,12 @@ const base = 'https://rs-lang-team15.herokuapp.com';
 
 // Words
 export const getWords = async (group: number, page: number): Promise<Word[]> => {
-  return (await fetch(`${base}/words?group=${group}&page=${page}`)).json();
+  const words = await (await fetch(`${base}/words?group=${group}&page=${page}`)).json()
+  return Promise.all(
+    words.map(async (word: Word) => ({
+      ...word,
+    })));
 };
-
 export const getWord = async (id: string | undefined): Promise<Word> => (await fetch(`${base}/words/${id}`)).json();
 
 // Users and Sign In
@@ -234,28 +237,29 @@ export const getUserStatistics = async (id: string, token: string): Promise<Stat
   })
 )
 
-export const setUserStatistics = async (id: string, token: string, body: any): Promise<Statistic> => {
-  const mapBody = JSON.stringify({
-    optional:
-      Object.entries(body).reduce((acc:any, [key, value]) => {
-        acc[key] = Array.isArray(value) ? JSON.stringify(value).replace(/"/g, '\"') : value;
-        return acc
-      }, {})
-  })
-  const res = await fetch(`${base}/users/${id}/statistics`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: mapBody,
-  });
-  if (res.status !== 200) {
-    throw new Error(`${res.status}`);
-  }
-  return await res.json();
-}
+// export const setUserStatistics = async (id: string, token: string, body: any): Promise<Statistic> => {
+//   const mapBody = JSON.stringify({
+//     optional:
+//       Object.entries(body).reduce((acc:any, [key, value]) => {
+//         acc[key] = Array.isArray(value) ? JSON.stringify(value).replace(/"/g, '\"') : value;
+//         return acc
+//       }, {})
+//   })
+//   const res = await fetch(`${base}/users/${id}/statistics`, {
+//     method: 'PUT',
+//     headers: {
+//       'Authorization': `Bearer ${token}`,
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: mapBody,
+//   });
+//   if (res.status !== 200) {
+//     throw new Error(`${res.status}`);
+//   }
+//   return await res.json();
+// }
+
 // Users/Setting
 
 export const getUserSettings = async (id: string, token: string): Promise<Setting> => 
