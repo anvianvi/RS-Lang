@@ -1,11 +1,16 @@
 import "./pagination.css";
 import { usePagination, DOTS } from "./usePagination";
-import classnames from 'classnames';
-import React from 'react';
+import classnames from "classnames";
+import React from "react";
 
-
-
-const Pagination = (props: { onPageChange: any; totalCount: number; siblingCount?: number; currentPage: number; pageSize: number; className: string; }) => {
+const Pagination = (props: {
+  onPageChange: any;
+  totalCount: number;
+  siblingCount?: number;
+  currentPage: number;
+  pageSize: number;
+  className: string;
+}) => {
   const {
     onPageChange,
     totalCount,
@@ -47,7 +52,7 @@ const Pagination = (props: { onPageChange: any; totalCount: number; siblingCount
       >
         <div className="arrow left" />
       </li>
-      {paginationRange!.map((pageNumber) => {
+      {paginationRange!.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
           return <li className="pagination-item dots">&#8230;</li>;
         }
@@ -58,6 +63,8 @@ const Pagination = (props: { onPageChange: any; totalCount: number; siblingCount
               selected: pageNumber === currentPage,
             })}
             onClick={() => onPageChange(pageNumber)}
+            key={index + "id"}
+            id={index + "id"}
           >
             {pageNumber}
           </li>

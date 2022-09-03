@@ -19,29 +19,25 @@ export default function ListOfWords() {
   const [currentPage, setCurrentPage] = useState(1);
   const [words, setWords] = useState<Word[] | undefined>();
   const [count, setCount] = useState(1);
-  useEffect(
-    () => {
-      const fetchWords = async () => {
-        const fetchedWords = await getWords(5, 3);
-        setWords(fetchedWords);
-      }
-      fetchWords()
-    }
-, [])
+  useEffect(() => {
+    const fetchWords = async () => {
+      const fetchedWords = await getWords(5, 3);
+      setWords(fetchedWords);
+    };
+    fetchWords();
+  }, []);
 
-useEffect(
-  ()=>{
-    if(words) {
-      console.log(words.length)
-      setCount(words.length)
+  useEffect(() => {
+    if (words) {
+      console.log(words.length);
+      setCount(words.length);
     }
-  }, [words]
-)
+  }, [words]);
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    if(words) {
+    if (words) {
       return words.slice(firstPageIndex, lastPageIndex);
     }
   }, [currentPage, words]);
@@ -51,7 +47,6 @@ useEffect(
   //     if(words.length) {return words.length;}
   //   }
   // }, [ words]);
-
 
   // let count: number = 0;
   // if(words) {
@@ -72,7 +67,7 @@ useEffect(
       />
 
       {currentTableData?.map((el) => (
-        <Paper elevation={6} className="word-contaier" id={el.id}>
+        <Paper elevation={6} className="word-contaier" key={el.id} id={el.id}>
           <div className="word-container-header">
             <Avatar
               alt={el.word}
