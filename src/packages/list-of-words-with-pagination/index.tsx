@@ -2,18 +2,18 @@ import "./style.css";
 import Parser from "html-react-parser";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
-// import TextBookWordsList from "./example-of-data";
 import Typography from "@mui/material/Typography";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import IconButton from "@mui/material/IconButton";
 import { useState, useMemo, useEffect } from "react";
 import Pagination from "./pagination";
-import playAudio from "./playAudio";
+// import playAudio from "./playAudio";
 import { getWords } from "../../api";
 import { Word } from "../../interfaces";
 
-const URL = "https://react-learnwords-example.herokuapp.com/";
-let PageSize: number = 3;
+const URL = "https://rs-lang-team15.herokuapp.com/";
+const PageSize: number = 20;
+const PageCount: number = 29;
 
 export default function ListOfWords() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,40 +21,23 @@ export default function ListOfWords() {
   const [count, setCount] = useState(1);
   useEffect(() => {
     const fetchWords = async () => {
-      const fetchedWords = await getWords(5, 3);
+      const fetchedWords = await getWords(1, currentPage);
       setWords(fetchedWords);
     };
     fetchWords();
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     if (words) {
-      console.log(words.length);
-      setCount(words.length);
+      setCount(words.length*PageCount);
     }
   }, [words]);
 
   const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
     if (words) {
-      return words.slice(firstPageIndex, lastPageIndex);
+      return words;
     }
-  }, [currentPage, words]);
-
-  // let count: number = useMemo(() => {
-  //   if(words) {
-  //     if(words.length) {return words.length;}
-  //   }
-  // }, [ words]);
-
-  // let count: number = 0;
-  // if(words) {
-  //   if(words.length) {
-  //     count = words.length;
-  //     console.log(count)
-  //   }
-  // }
+  }, [words]);
 
   return (
     <div className="cards-container">
@@ -81,7 +64,8 @@ export default function ListOfWords() {
                   className="card-voise-button"
                   color="primary"
                   onClick={() => {
-                    playAudio(el.audio);
+                    let audioWord = new Audio(URL + el.audio);
+                    audioWord.play();
                   }}
                 >
                   <VolumeUpIcon />
@@ -98,7 +82,8 @@ export default function ListOfWords() {
               className="card-voise-button"
               color="primary"
               onClick={() => {
-                playAudio(el.audioMeaning);
+                let audioWord = new Audio(URL + el.audioMeaning);
+                audioWord.play();
               }}
             >
               <VolumeUpIcon sx={{ fontSize: 20 }} />
@@ -113,7 +98,8 @@ export default function ListOfWords() {
               className="card-voise-button"
               color="primary"
               onClick={() => {
-                playAudio(el.audioExample);
+                let audioWord = new Audio(URL + el.audioExample);
+                audioWord.play();
               }}
             >
               <VolumeUpIcon />
