@@ -29,7 +29,12 @@
 }
 
 .pagination-bar {
-  width: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.cards-group, .cards-group-pages {
   display: flex;
   justify-content: center;
 }
