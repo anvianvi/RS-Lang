@@ -1,6 +1,5 @@
 import "./style.css";
 import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -11,9 +10,8 @@ export default function AdvatagesBlock() {
   return (
     <div className="advantage-block-container">
       {AdvantagesList.map((el, index) => (
-        <Paper elevation={5} data-indexd={index} key={el.title + "id"}>
-          <Card sx={{ maxWidth: 330 }} className="card-container">
-            <CardActionArea>
+          <Paper elevation={5} data-indexd={index} key={el.title + "id"}>
+            <Card sx={{ maxWidth: 330 }} className="card-container">
               <CardMedia
                 component="img"
                 height="140"
@@ -29,9 +27,8 @@ export default function AdvatagesBlock() {
                   {el.text}
                 </Typography>
               </CardContent>
-            </CardActionArea>
-          </Card>
-        </Paper>
+            </Card>
+          </Paper>
       ))}
     </div>
   );

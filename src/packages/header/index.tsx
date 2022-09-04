@@ -13,9 +13,15 @@ function Header() {
         <img src="logo.svg" alt="notfound" className="logo" />
       </Link>
       <nav className="header-navigation">
-        <Link to={`${PUBLIC_URL}/Team`}>Team</Link>
-        <Link to={`${PUBLIC_URL}/Sprint`}>Sprint Game</Link>
-        <Link to={`${PUBLIC_URL}/Textbook`}>Textbook</Link>
+        <Link to={`${PUBLIC_URL}/Team`}>
+          <span className="menu-link-element">Team</span>
+        </Link>
+        <Link to={`${PUBLIC_URL}/Sprint`}>
+          <span className="menu-link-element">Sprint Game</span>
+        </Link>
+        <Link to={`${PUBLIC_URL}/Textbook`}>
+          <span className="menu-link-element">Textbook</span>
+        </Link>
         {/* <Link to={`${PUBLIC_URL}/Statistic`}>Statistic</Link> */}
       </nav>
       {/* depends on sign status we can show diferent buttons  */}
@@ -24,7 +30,7 @@ function Header() {
           <div>
             {" "}
             <GoogleLogin
-              onSuccess={credentialResponse => {
+              onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);
               }}
               onError={() => {

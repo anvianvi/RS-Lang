@@ -11,8 +11,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 5vw;
-  padding: 5vw 10vw;
-  border: 3px rgb(255, 108, 226) solid;
+  padding: 1vw;
 }
 .card-container{
   padding: 1vw;
