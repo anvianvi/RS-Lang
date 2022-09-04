@@ -20,6 +20,7 @@ function App() {
           <Route path={PUBLIC_URL} element={<AdvatagesBlock />} />
           <Route path={`${PUBLIC_URL}/Team`} element={<TeamBlock />} />
           <Route path={`${PUBLIC_URL}/Sprint`} element={<SprintGame />} />
+          <Route path={`${PUBLIC_URL}/AudioGame`} element={<AudioGame />} />
           <Route path={`${PUBLIC_URL}/Textbook`} element={<ListOfWords />} />
         </Routes>
       </Container>

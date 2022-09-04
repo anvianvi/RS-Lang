@@ -1,0 +1,24 @@
+.audio-game-container {
+  width: 680px;
+  height: 350px;
+  margin: 10px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border: 20px groove #1976d2;
+  position: relative;
+}
+.words-counter {
+  padding: 0 0 0 5px;
+  font-size: 15px;
+  color: #1976d2;
+  border-top: 5px solid #1976d2;
+  border-left: 3px solid #1976d2;
+  position: absolute;
+  left: 1%;
+  top: 2%;
+}

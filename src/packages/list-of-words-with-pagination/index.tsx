@@ -7,7 +7,6 @@ import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import IconButton from "@mui/material/IconButton";
 import { useState, useMemo, useEffect } from "react";
 import Pagination from "./pagination";
-// import playAudio from "./playAudio";
 import { getWords } from "../../api";
 import { Word } from "../../interfaces";
 
