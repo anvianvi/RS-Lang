@@ -16,11 +16,25 @@ export default function Footer() {
       </Link>
 
       <div className="links-container">
-        <Link href="https://github.com/Anastasia-pro" target="blank">
+        <Link
+          href="https://github.com/Anastasia-pro"
+          underline="hover"
+          target="blank"
+        >
           Nastasya
         </Link>
-        <Link href="https://github.com/PDmitryY">Dmitry</Link>
-        <Link href="https://github.com/anvianvi" target="blank">
+        <Link
+          href="https://github.com/PDmitryY"
+          underline="hover"
+          target="blank"
+        >
+          Dmitry
+        </Link>
+        <Link
+          href="https://github.com/anvianvi"
+          underline="hover"
+          target="blank"
+        >
           Pavel
         </Link>
       </div>

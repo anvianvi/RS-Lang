@@ -1,9 +1,8 @@
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px 5vw;
-  background: pink;
 }
 .links-container {
   display: flex;

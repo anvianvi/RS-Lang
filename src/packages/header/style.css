@@ -1,20 +1,26 @@
-.logo{
-  height: 45px;
+.logo {
+  height: 60px;
 }
-.header{
-  background: pink;
+.header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 10px 5vw;
   align-items: center;
 }
 
-.sign-block{
+.sign-block {
   display: flex;
   gap: 2vw;
 }
 
-.header-navigation{
+.header-navigation {
   display: flex;
   gap: 4vw;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+  color: #1976d2;
+  text-decoration: none
 }
