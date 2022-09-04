@@ -201,7 +201,7 @@ export const deleteUserWord = async (id: string, wordId: string, word: UserWord,
 
 // Users/AggregatedWords
 
-export const getAggregatedWords = async (id: string, group: number, page: number, token: string) => 
+export const getAggregatedWords = async (id: string, group: number, page: number, token: string): Promise<Word[]> => 
 (
   await fetch(`${base}/users/${id}/aggregatedWords?group=${group}&page=${page}&wordsPerPage=20`, {
     method: 'GET',
@@ -217,6 +217,40 @@ export const getAggregatedWords = async (id: string, group: number, page: number
     return data.json();
   })
 )
+
+export const getAggregatedWordsById = async (id: string, wordId: string, token: string): Promise<Word[]> => 
+(
+  await fetch(`${base}/users/${id}/aggregatedWords/${wordId}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  }).then(data => {
+    if (data.status !== 200) {
+      throw new Error(`${data.status}`);
+    }
+    return data.json();
+  })
+)
+
+export const getAggregatedWordsByFilter = async (id: string, params: any, group: number, page: number, token: string): Promise<Word[]> => {
+  const filter = JSON.stringify(params);
+  return fetch(`${base}/users/${id}/aggregatedWords?filter=${filter}&group=${group}&page=${page}&wordsPerPage=20`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  }).then(data => {
+    if (data.status !== 200) {
+      throw new Error(`${data.status}`);
+    }
+    return data.json();
+  })
+}
 
 // Users/Statistic
 
@@ -237,28 +271,22 @@ export const getUserStatistics = async (id: string, token: string): Promise<Stat
   })
 )
 
-// export const setUserStatistics = async (id: string, token: string, body: any): Promise<Statistic> => {
-//   const mapBody = JSON.stringify({
-//     optional:
-//       Object.entries(body).reduce((acc:any, [key, value]) => {
-//         acc[key] = Array.isArray(value) ? JSON.stringify(value).replace(/"/g, '\"') : value;
-//         return acc
-//       }, {})
-//   })
-//   const res = await fetch(`${base}/users/${id}/statistics`, {
-//     method: 'PUT',
-//     headers: {
-//       'Authorization': `Bearer ${token}`,
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: mapBody,
-//   });
-//   if (res.status !== 200) {
-//     throw new Error(`${res.status}`);
-//   }
-//   return await res.json();
-// }
+export const setUserStatistics = async (id: string, token: string, params: any): Promise<Statistic> => {
+  const data = JSON.stringify(params);
+  const res = await fetch(`${base}/users/${id}/statistics`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: data,
+  });
+  if (res.status !== 200) {
+    throw new Error(`${res.status}`);
+  }
+  return await res.json();
+}
 
 // Users/Setting
 
