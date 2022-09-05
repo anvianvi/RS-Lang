@@ -21,7 +21,6 @@ export default function SignUpForm() {
     password: "",
     showPassword: false,
   });
-
   const handleChange =
     (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
       setValues({ ...values, [prop]: event.target.value });
@@ -39,6 +38,8 @@ export default function SignUpForm() {
   ) => {
     event.preventDefault();
   };
+
+
   return (
     <div className="sign-in-container">
       <Typography variant="h4">
@@ -63,7 +64,8 @@ export default function SignUpForm() {
         label="Email"
       />
 
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+      <FormControl sx={{ m: 1, width: "25ch" }} 
+      variant="outlined">
         <InputLabel htmlFor="sign-up-password">Password</InputLabel>
         <OutlinedInput
           required

@@ -3,6 +3,10 @@ import AccountMenu from "./accaunt-menu";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import SignUpForm from "../sign-up-form";
+import SignInForm from "../sign-in-form";
 
 const { PUBLIC_URL } = process.env;
 
@@ -20,16 +24,24 @@ function Header() {
       </nav>
       {/* depends on sign status we can show diferent buttons  */}
       <div className="sign-block">
+        <Popup className="popup" trigger={<Button className="button"> Sign in </Button>} modal>
+          <SignUpForm></SignUpForm>
+        </Popup>
+        <Popup className="popup" trigger={<Button className="button"> Log in </Button>} modal>
+          <SignInForm></SignInForm>
+        </Popup>
         <Button variant="outlined">
           <div>
             {" "}
             <GoogleLogin
               onSuccess={credentialResponse => {
-                console.log(credentialResponse);
+                const str = JSON.stringify(credentialResponse);
+                localStorage.setItem('User', str)
               }}
               onError={() => {
                 console.log("Login Failed");
-              }}
+              }
+              }
               useOneTap
             />
           </div>
