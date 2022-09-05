@@ -13,23 +13,39 @@ import { Word } from "../../interfaces";
 
 const URL = "https://rs-lang-team15.herokuapp.com/";
 const PageSize: number = 20;
-const PageCount: number = 29;
+const PageCount: number = 30;
+const GroupCount: number = 6;
 
 export default function ListOfWords() {
   const [currentPage, setCurrentPage] = useState(1);
   const [words, setWords] = useState<Word[] | undefined>();
   const [count, setCount] = useState(1);
+  const [randomWord, setRandomWord] = useState<Word | undefined>();
+  
+  const [currentGroup, setcurrentGroup] = useState(1);
+  const [groupCount, setgroupCount] = useState(1);
+
   useEffect(() => {
     const fetchWords = async () => {
-      const fetchedWords = await getWords(1, currentPage);
+      const fetchedWords = await getWords(currentGroup - 1, currentPage - 1);
+      const fetchRandomWords = await getWords((Math.floor(Math.random()*currentGroup)), (Math.floor(Math.random()*currentPage)));
+      const fetchedRandomWord = fetchRandomWords[Math.floor(Math.random()*20)]
       setWords(fetchedWords);
+      setRandomWord(fetchedRandomWord);
+      console.log('randomWord', randomWord);
     };
     fetchWords();
-  }, [currentPage]);
+  }, [currentPage, currentGroup]);
 
   useEffect(() => {
     if (words) {
       setCount(words.length*PageCount);
+    }
+  }, [words]);
+
+  useEffect(() => {
+    if (words) {
+      setgroupCount(GroupCount);
     }
   }, [words]);
 
@@ -41,13 +57,26 @@ export default function ListOfWords() {
 
   return (
     <div className="cards-container">
-      <Pagination
-        className="pagination-bar"
-        currentPage={currentPage}
-        totalCount={count}
-        pageSize={PageSize}
-        onPageChange={(page: number) => setCurrentPage(page)}
-      />
+      <div className="cards-group">
+        <h3>Group of words</h3>
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentGroup}
+          totalCount={groupCount}
+          pageSize={1}
+          onPageChange={(page: number) => setcurrentGroup(page)}
+        />
+      </div>
+      <div className="cards-group-pages">
+        <h3>Pages of Group</h3>
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={count}
+          pageSize={PageSize}
+          onPageChange={(page: number) => setCurrentPage(page)}
+        />
+      </div>
 
       {currentTableData?.map((el) => (
         <Paper elevation={6} className="word-contaier" key={el.id} id={el.id}>
