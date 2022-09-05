@@ -55,3 +55,7 @@ export interface Auth {
     email:	string,
     password:	string
   }
+
+export function create(arg0: { email: string; password: string }) {
+    throw new Error("Function not implemented.")
+}
