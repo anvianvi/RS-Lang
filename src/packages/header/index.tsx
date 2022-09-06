@@ -3,6 +3,10 @@ import AccountMenu from "./accaunt-menu";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import SignUpForm from "../sign-up-form";
+import SignInForm from "../sign-in-form";
 
 const { PUBLIC_URL } = process.env;
 
@@ -13,29 +17,31 @@ function Header() {
         <img src="logo.svg" alt="notfound" className="logo" />
       </Link>
       <nav className="header-navigation">
-        <Link to={`${PUBLIC_URL}/Team`}>
-          <span className="menu-link-element">Team</span>
-        </Link>
-        <Link to={`${PUBLIC_URL}/Sprint`}>
-          <span className="menu-link-element">Sprint Game</span>
-        </Link>
-        <Link to={`${PUBLIC_URL}/Textbook`}>
-          <span className="menu-link-element">Textbook</span>
-        </Link>
+        <Link to={`${PUBLIC_URL}/Team`}>Team</Link>
+        <Link to={`${PUBLIC_URL}/Sprint`}>Sprint Game</Link>
+        <Link to={`${PUBLIC_URL}/Textbook`}>Textbook</Link>
         {/* <Link to={`${PUBLIC_URL}/Statistic`}>Statistic</Link> */}
       </nav>
       {/* depends on sign status we can show diferent buttons  */}
       <div className="sign-block">
+        <Popup className="popup" trigger={<Button className="button"> Sign in </Button>} modal>
+          <SignUpForm></SignUpForm>
+        </Popup>
+        <Popup className="popup" trigger={<Button className="button"> Log in </Button>} modal>
+          <SignInForm></SignInForm>
+        </Popup>
         <Button variant="outlined">
           <div>
             {" "}
             <GoogleLogin
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
+              onSuccess={credentialResponse => {
+                const str = JSON.stringify(credentialResponse);
+                localStorage.setItem('User', str)
               }}
               onError={() => {
                 console.log("Login Failed");
-              }}
+              }
+              }
               useOneTap
             />
           </div>
