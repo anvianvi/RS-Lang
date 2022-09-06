@@ -11,6 +11,8 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+
+
 interface State {
   password: string;
   showPassword: boolean;
@@ -39,6 +41,21 @@ export default function SignUpForm() {
     event.preventDefault();
   };
 
+  // const url='https://rs-lang-team15.herokuapp.com/doc/#/';
+  // const [data, setData] = useState({
+  //   name: '',
+  //   emai: ''
+  // })
+  const sendData = () => {
+    const nameData = (document.getElementById('nameData')as HTMLInputElement).value;
+    const nameEmail = (document.getElementById('nameEmail')as HTMLInputElement).value;
+    const namePsw = (document.getElementById('pswName')as HTMLInputElement).value;
+
+    localStorage.setItem('name', nameData);
+    localStorage.setItem('email', nameEmail);
+    localStorage.setItem('password', namePsw);
+  }
+
 
   return (
     <div className="sign-in-container">
@@ -53,6 +70,9 @@ export default function SignUpForm() {
         type="text"
         placeholder="your name or nickname"
         label="Name"
+        id="nameData"
+        // value={data.name}
+        // onChange={(e)=> handle(e)}
       />
 
       <TextField
@@ -62,6 +82,9 @@ export default function SignUpForm() {
         type="email"
         placeholder="example@email.com"
         label="Email"
+        // value={data.emai}
+        id="nameEmail"
+        // onChange={(e)=> handle(e)}
       />
 
       <FormControl sx={{ m: 1, width: "25ch" }} 
@@ -69,9 +92,9 @@ export default function SignUpForm() {
         <InputLabel htmlFor="sign-up-password">Password</InputLabel>
         <OutlinedInput
           required
-          id="sign-up-password"
           type={values.showPassword ? "text" : "password"}
           value={values.password}
+          id="pswName"
           onChange={handleChange("password")}
           endAdornment={
             <InputAdornment position="end">
@@ -89,7 +112,7 @@ export default function SignUpForm() {
         />
       </FormControl>
 
-      <Button variant="contained">Sign up</Button>
+      <Button variant="contained" onClick={sendData}>Sign up</Button>
       <Button href="#text-buttons">Do you have an account? Sign In</Button>
     </div>
   );
