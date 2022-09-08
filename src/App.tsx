@@ -8,6 +8,7 @@ import SprintGame from "./packages/sprint-game";
 import { Container } from "@mui/system";
 import { Routes, Route } from "react-router-dom";
 import SignUpForm from "./packages/sign-up-form";
+import AudioGame from "./packages/audio-game";
 const { PUBLIC_URL } = process.env;
 
 function App() {
