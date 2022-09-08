@@ -218,7 +218,7 @@ export const getAggregatedWords = async (id: string, group: number, page: number
   })
 )
 
-export const getAggregatedWordsById = async (id: string, wordId: string, token: string): Promise<Word[]> => 
+export const getAggregatedWordsById = async (id: string, wordId: string, token: string): Promise<Word> => 
 (
   await fetch(`${base}/users/${id}/aggregatedWords/${wordId}`, {
     method: 'GET',
