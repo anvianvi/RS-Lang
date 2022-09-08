@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 5vw;
+}
+.links-container {
+  display: flex;
+  gap: 2vw;
+}
