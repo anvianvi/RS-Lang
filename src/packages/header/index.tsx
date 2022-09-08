@@ -20,7 +20,7 @@ function Header() {
         <Link to={`${PUBLIC_URL}/Team`}>Team</Link>
         <Link to={`${PUBLIC_URL}/Sprint`}>Sprint Game</Link>
         <Link to={`${PUBLIC_URL}/Textbook`}>Textbook</Link>
-        {/* <Link to={`${PUBLIC_URL}/Statistic`}>Statistic</Link> */}
+        {<Link to={`${PUBLIC_URL}/Statistics`}>Statistics</Link>}
       </nav>
       {/* depends on sign status we can show diferent buttons  */}
       <div className="sign-block">

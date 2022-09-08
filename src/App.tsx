@@ -8,7 +8,9 @@ import SprintGame from "./packages/sprint-game";
 import { Container } from "@mui/system";
 import { Routes, Route } from "react-router-dom";
 import SignUpForm from "./packages/sign-up-form";
+import Statistics from "./packages/statistics";
 import AudioGame from "./packages/audio-game";
+
 const { PUBLIC_URL } = process.env;
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path={`${PUBLIC_URL}/Sprint`} element={<SprintGame />} />
           <Route path={`${PUBLIC_URL}/AudioGame`} element={<AudioGame />} />
           <Route path={`${PUBLIC_URL}/Textbook`} element={<ListOfWords />} />
+          <Route path={`${PUBLIC_URL}/Statistics`} element={<Statistics />} />
         </Routes>
       </Container>
       <Footer />
