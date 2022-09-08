@@ -30,9 +30,6 @@ function Header() {
         <Popup className="popup" trigger={<Button className="button"> Log in </Button>} modal>
           <SignInForm></SignInForm>
         </Popup>
-        <Button variant="outlined">
-          <div>
-            {" "}
             <GoogleLogin
               onSuccess={credentialResponse => {
                 const str = JSON.stringify(credentialResponse);
@@ -44,9 +41,7 @@ function Header() {
               }
               useOneTap
             />
-          </div>
-        </Button>
-        <AccountMenu />
+        {/* <AccountMenu /> */}
       </div>
     </div>
   );
