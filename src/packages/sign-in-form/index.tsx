@@ -1,4 +1,3 @@
-// https://mui.com/material-ui/react-text-field/#type-quot-number-quot
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -11,7 +10,6 @@ import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-// import {GoogleLogin} from '@react-oauth/google';
 
 
 interface State {
@@ -81,15 +79,6 @@ export default function SignInForm() {
           label="Password"
         />
       </FormControl>
-          {/* <div> <GoogleLogin
-  onSuccess={credentialResponse => {
-    console.log(credentialResponse);
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-  useOneTap
-/>;</div> */}
       <Button variant="contained">Sign in</Button>
       <Button href="#text-buttons">Don't have an account? Sign Up</Button>
     </div>

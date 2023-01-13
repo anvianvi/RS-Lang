@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getUserStatistics } from "../../api";
-// import { Statistic } from "../../interfaces"
 
 export default function Statistics() {
 

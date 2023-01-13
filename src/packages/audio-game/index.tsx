@@ -36,7 +36,6 @@ function GameScreans() {
   const gameArr = TextBookWordsList.filter(function (obj) {
     return obj.group === wordsGrup;
   });
-  // let [answersArray, setanswersArray] = useState([]);
 
   let answersArray: any = [];
 
@@ -87,9 +86,7 @@ function GameScreans() {
         </IconButton>
         <ButtonGroup variant="text" aria-label="text button group">
             <Button>{answersArray[0].word}</Button>
-            {/* <Button>{answersArray[1].word}</Button>
-            <Button>{answersArray[2].word}</Button>
-            <Button>{answersArray[3].word}</Button> */}
+
         </ButtonGroup>
         <Button variant="text" color="error" size="small">
           pass
@@ -105,8 +102,7 @@ function GameScreans() {
           variant="contained"
           onClick={() => {
             setGameFase(GameFase - 2);
-            // setcorrectInRow((correctInRow = 0));
-            // setScore((score = 0));
+
           }}
         >
           restart

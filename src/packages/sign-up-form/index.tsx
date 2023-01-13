@@ -41,11 +41,6 @@ export default function SignUpForm() {
     event.preventDefault();
   };
 
-  // const url='https://rs-lang-team15.herokuapp.com/doc/#/';
-  // const [data, setData] = useState({
-  //   name: '',
-  //   emai: ''
-  // })
   const sendData = () => {
     const nameData = (document.getElementById('nameData')as HTMLInputElement).value;
     const nameEmail = (document.getElementById('nameEmail')as HTMLInputElement).value;
@@ -71,8 +66,6 @@ export default function SignUpForm() {
         placeholder="your name or nickname"
         label="Name"
         id="nameData"
-        // value={data.name}
-        // onChange={(e)=> handle(e)}
       />
 
       <TextField
@@ -82,9 +75,7 @@ export default function SignUpForm() {
         type="email"
         placeholder="example@email.com"
         label="Email"
-        // value={data.emai}
         id="nameEmail"
-        // onChange={(e)=> handle(e)}
       />
 
       <FormControl sx={{ m: 1, width: "25ch" }} 

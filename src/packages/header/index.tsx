@@ -1,5 +1,4 @@
 import Button from "@mui/material/Button";
-import AccountMenu from "./accaunt-menu";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link } from "react-router-dom";
@@ -22,7 +21,6 @@ function Header() {
         <Link to={`${PUBLIC_URL}/Textbook`}>Textbook</Link>
         {<Link to={`${PUBLIC_URL}/Statistics`}>Statistics</Link>}
       </nav>
-      {/* depends on sign status we can show diferent buttons  */}
       <div className="sign-block">
         <Popup className="popup" trigger={<Button className="button"> Sign in </Button>} modal>
           <SignUpForm></SignUpForm>
@@ -41,7 +39,6 @@ function Header() {
               }
               useOneTap
             />
-        {/* <AccountMenu /> */}
       </div>
     </div>
   );
